@@ -12,7 +12,7 @@ describe('TodoAdd', () => {
 	});
 	it('should recognize if valid input entered', () => {
 	var spy = expect.createSpy();
-	var todoaddform = TestUtils.renderIntoDocument(<TodoAdd onSearch={spy}/>)
+	var todoaddform = TestUtils.renderIntoDocument(<TodoAdd onAdd={spy}/>)
 	var $el = $(ReactDOM.findDOMNode(todoaddform));
 
 	todoaddform.refs.todo.value = 'mom';
@@ -22,7 +22,7 @@ describe('TodoAdd', () => {
 	});
 	it('should recognize if invalid input entered', () => {
 	var spy = expect.createSpy();
-	var todoaddform = TestUtils.renderIntoDocument(<TodoAdd onSearch={spy}/>)
+	var todoaddform = TestUtils.renderIntoDocument(<TodoAdd onAdd={spy}/>)
 	var $el = $(ReactDOM.findDOMNode(todoaddform));
 
 	todoaddform.refs.todo.value = '';
