@@ -2,31 +2,43 @@ var React = require('react');
 var TodoList = require('TodoList');
 var TodoAdd = require('TodoAdd');
 var TodoSearch = require('TodoSearch');
+var uuid = require('node-uuid');
+var TodoApi = require('TodoApi');
 
 var TodoApp = React.createClass({
 	getInitialState: function () {
 		return {
 			showCompleted: false,
 			searchText: '',
-			todos: [
-				{
-					id: 1,
-					text: 'get up early'
-				},{
-					id: 2,
-					text: 'code'
-				},{
-					id: 3, 
-					text: 'go to work'
-				},{
-					id: 4,
-					text: 'call pat bateman'
-				}
-			]
+			todos: TodoApi.getTodos()
 		}
 	},
-	handleAddToDo: function(text){
-		alert('new todo: ' + text);
+	componentDidUpdate: function () {
+		TodoApi.setTodos(this.state.todos)
+	},
+	handleAddTodo: function(text){
+		this.setState({
+			todos: [
+				...this.state.todos,
+				{
+					id: uuid(),
+					text: text,
+					completed: false
+				}
+			]
+		})
+	},
+	handleToggle: function(id){
+		var updatedTodos = this.state.todos.map(function(todo){
+			if(todo.id === id){
+				todo.completed = !todo.completed;
+			}
+			return todo;
+		})
+
+		this.setState({
+			todos: updatedTodos
+		})
 	},
 	handleSearch: function(showCompleted, searchText){
 		this.setState({
@@ -40,8 +52,8 @@ var TodoApp = React.createClass({
 		return (
 			<div>
 				<TodoSearch onSearch={this.handleSearch}/>
-				<TodoList todos={todos}/>
-				<TodoAdd onAdd={this.handleAddToDo}/>
+				<TodoList todos={todos} onToggle={this.handleToggle}/>
+				<TodoAdd onAdd={this.handleAddTodo}/>
 			</div>
 		)
 	}

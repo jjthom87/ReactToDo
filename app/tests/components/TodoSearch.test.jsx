@@ -26,7 +26,7 @@ describe('TodoSearch', () => {
 	var $el = $(ReactDOM.findDOMNode(todosearch));
 
 	todosearch.refs.showCompleted.checked = true;
-	todosearch.refs.searchText.value = 'Mom'
+	todosearch.refs.searchText.value = 'Mom';
 	TestUtils.Simulate.change(todosearch.refs.showCompleted);
 
 	expect(spy).toHaveBeenCalledWith(true, 'Mom');
