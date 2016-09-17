@@ -27,6 +27,7 @@ module.exports = {
 		// } else {
 		// 	return [];
 		// }
+
 		//this is exactly the same as the ternary
 	}
 };
