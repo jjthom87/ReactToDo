@@ -28,7 +28,9 @@ module.exports = {
 			'./app/api'
 		],
 		alias: {
-			applicationStyles: 'app/styles/app.scss'
+			applicationStyles: 'app/styles/app.scss',
+			actions: 'app/actions/actions.jsx',
+			reducers: 'app/reducers/reducers.jsx'
 		},
 		extensions: ['', '.js', '.jsx']
 	},
@@ -49,5 +51,5 @@ module.exports = {
 			path.resolve(__dirname, './node_modules/foundation-sites/scss')
 		]
 	},
-	devtool: 'cheap-module-eval-source-map'
+	devtool: 'source-map'
 };
