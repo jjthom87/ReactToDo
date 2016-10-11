@@ -1,6 +1,8 @@
 var React = require('react');
+var {connect} = require('react-redux');
+var actions = require('actions');
 
-var TodoAdd = React.createClass({
+export var TodoAdd = React.createClass({
 	onFormSubmit: function(e){
 		e.preventDefault();
 
@@ -9,7 +11,8 @@ var TodoAdd = React.createClass({
 		if (todo.length > 0){
 			this.refs.todo.value = '';
 			//onSearch is created here
-			this.props.onAdd(todo);
+			var {dispatch} = this.props;
+			dispatch(actions.addTodo(todo));
 		} else {
 			//focus puts the cursor back to the input field if invalid
 			this.refs.todo.focus();
@@ -31,4 +34,4 @@ var TodoAdd = React.createClass({
 	}
 });
 
-module.exports = TodoAdd;
+export default connect()(TodoAdd);
