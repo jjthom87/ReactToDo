@@ -12,7 +12,7 @@ export var TodoAdd = React.createClass({
 			this.refs.todo.value = '';
 			//onSearch is created here
 			var {dispatch} = this.props;
-			dispatch(actions.addTodo(todo));
+			dispatch(actions.startAddTodo(todo));
 		} else {
 			//focus puts the cursor back to the input field if invalid
 			this.refs.todo.focus();

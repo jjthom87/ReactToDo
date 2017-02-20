@@ -2,7 +2,7 @@
   "name": "helloreact",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "karma start",
     "start": "node server.js"
@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.14.0",
     "express": "^4.14.0",
+    "firebase": "^3.6.9",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-router": "^2.7.0"
@@ -25,7 +26,7 @@
     "css-loader": "^0.24.0",
     "deep-freeze-strict": "^1.1.1",
     "expect": "^1.14.0",
-    "foundation-sites": "^6.2.3",
+    "foundation-sites": "^6.3.0",
     "jquery": "^2.2.4",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.2",
@@ -40,6 +41,8 @@
     "react-addons-test-utils": "^0.14.7",
     "react-redux": "^4.4.5",
     "redux": "^3.6.0",
+    "redux-mock-store": "^1.2.2",
+    "redux-thunk": "^2.2.0",
     "sass-loader": "^3.1.2",
     "script-loader": "^0.7.0",
     "style-loader": "^0.13.1",
